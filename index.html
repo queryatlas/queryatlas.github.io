@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QueryAtlas – Your Company’s Atlas. Query Anything, Instantly.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/2563EB/brain.png">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --accent: #60A5FA;
+      --light-gray: #F1F5F9;
+      --charcoal: #1E293B;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--light-gray);
+      color: var(--charcoal);
+      margin: 0;
+      padding: 0;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--light-gray);
+      padding: 48px 0 64px 0;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
+    .nav-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover { background: #174bbd; }
+    /* Hero */
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .hero-sub {
+      font-size: 22px;
+      color: #334155;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .hero-ctas .primary {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .hero-ctas .primary:hover { background: #174bbd; }
+    .hero-ctas .secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-ctas .secondary:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .hero-input {
+      background: var(--light-gray);
+      border-radius: 8px;
+      padding: 12px 24px;
+      max-width: 480px;
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      color: var(--charcoal);
+      border: 1.5px solid #E5E7EB;
+      margin-bottom: 48px;
+    }
+    .hero-input input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 20px;
+      flex: 1;
+    }
+    .hero-input svg {
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+    }
+    .hero-illustration {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .hero-illustration img {
+      width: 320px;
+      max-width: 100%;
+    }
+    .hero-logos {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-logos span {
+      background: #fff;
+      border-radius: 6px;
+      padding: 8px 16px;
+      box-shadow: 0 2px 8px #e5e7eb;
+      font-size: 16px;
+      color: var(--charcoal);
+      font-weight: 500;
+      width: fit-content;
+    }
+    /* Section Titles */
+    section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    /* Cards */
+    .card-row {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px #e5e7eb;
+      padding: 32px 24px;
+      min-width: 220px;
+      max-width: 260px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 16px 0 8px 0;
+    }
+    .card p {
+      font-size: 16px;
+      color: #334155;
+    }
+    /* Why It Matters */
+    .why-card span {
+      font-size: 40px;
+      color: var(--primary);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .testimonial {
+      background: var(--light-gray);
+      border-radius: 8px;
+      padding: 24px 32px;
+      font-style: italic;
+      display: inline-block;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .testimonial strong {
+      color: var(--primary);
+      font-weight: 600;
+      display: block;
+      margin-top: 8px;
+    }
+    /* CTA Strip */
+    .cta-strip {
+      background: var(--primary);
+      padding: 48px 0;
+      text-align: center;
+    }
+    .cta-strip h2 {
+      color: var(--white);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .cta-strip button {
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      border-radius: 8px;
+      padding: 18px 48px;
+      font-weight: 700;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #1e293b22;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta-strip button:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+    /* Footer */
+    footer {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 32px 0;
+    }
+    .footer-row {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-weight: 700;
+      font-size: 22px;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-social a {
+      color: var(--white);
+      font-size: 24px;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover { color: var(--accent); }
+    .footer-copy {
+      font-size: 16px;
+      color: #CBD5E1;
+      margin-top: 8px;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .card-row { flex-direction: column; align-items: center; }
+      .footer-row { flex-direction: column; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 32px; }
+      .hero-sub { font-size: 18px; }
+      section h2 { font-size: 24px; }
+      .card { min-width: 90vw; }
+      .hero-illustration { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Hero -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">QueryAtlas</div>
+        <button class="nav-btn">Request a Demo</button>
+      </div>
+      <div class="hero-title">
+        Your Company’s Atlas.<br>Query Anything, Instantly.
+      </div>
+      <div class="hero-sub">
+        An AI-powered knowledge platform to centralize your company’s expertise across teams, tools, and topics.
+      </div>
+      <div class="hero-ctas">
+        <button class="primary">Request a Demo</button>
+        <button class="secondary">Watch Video</button>
+      </div>
+      <div class="hero-input">
+        <input type="text" placeholder="How do I configure XYZ?">
+        <!-- Arrow icon (Heroicons) -->
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L21.75 12m0 0l-4.5 5.25M21.75 12H3"></path>
+        </svg>
+      </div>
+      <div class="hero-illustration">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*4LUIctYJa91WySX6hAip-Q.png" alt="People asking questions">
+        <div class="hero-logos">
+          <span>Slack</span>
+          <span>Jira</span>
+          <span>Docs</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- How It Works -->
+  <section style="background: var(--light-gray); padding: 64px 0;">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="card-row">
+        <div class="card">
+          <!-- UserGroupIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="48" height="48">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-7a4 4 0 11-8 0 4 4 0 018 0zm6 4v1a3 3 0 01-2.29 2.9M6 10v1a3 3 0 002.29 2.9"></path>
+          </svg>
+          <h3>Connect</h3>
+          <p>Connect to your tools (Slack, Jira, Docs, Email, CRM, etc.)</p>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_OneNote_%282014–present%29.svg" alt="OneNote" width="24">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Jira_Logo.png" alt="Jira" width="24">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Slack_Icon.png" alt="Slack" width="24">
+          </div>
+        </div>
+        <div class="card">
+          <!-- AcademicCapIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="48" height="48">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0c-4.418 0-8-1.343-8-3m8 3c4.418 0 8-1.343 8-3"></path>
+          </svg>
+          <h3>Organize</h3>
+          <p>Smart, contextual knowledge base built from your data.</p>
+        </div>
+        <div class="card">
+          <!-- ChatBubbleLeftRightIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="48" height="48">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 3.866-3.582 7-8 7a8.96 8.96 0 01-4-.93L3 20l1.07-3.21A7.963 7.963 0 013 12c0-3.866 3.582-7 8-7s8 3.134 8 7z"></path>
+          </svg>
+          <h3>Ask & Answer</h3>
+          <p>Ask in natural language, get instant answers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section style="background: var(--white); padding: 64px 0;">
+    <div class="container">
+      <h2>Why It Matters</h2>
+      <div class="card-row">
+        <div class="card why-card">
+          <span>100+</span>
+          <p>Hours saved per team/month</p>
+        </div>
+        <div class="card why-card">
+          <span>↓</span>
+          <p>Cut down internal support requests</p>
+        </div>
+        <div class="card why-card">
+          <span>🚀</span>
+          <p>Ramp new employees faster</p>
+        </div>
+        <div class="card why-card">
+          <span>✔️</span>
+          <p>Consistent, accurate answers</p>
+        </div>
+      </div>
+      <div class="testimonial">
+        “We reduced onboarding time by 50% and our teams love the instant answers!”
+        <strong>– Jane Doe, Head of Ops, Acme Corp</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases by Role -->
+  <section style="background: var(--light-gray); padding: 64px 0;">
+    <div class="container">
+      <h2>Use Cases by Role</h2>
+      <div class="card-row">
+        <div class="card">
+          <!-- AcademicCapIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0c-4.418 0-8-1.343-8-3m8 3c4.418 0 8-1.343 8-3"></path>
+          </svg>
+          <h3>Sales Engineers</h3>
+          <p>Find product answers fast, prep for demos.</p>
+        </div>
+        <div class="card">
+          <!-- ChatBubbleLeftRightIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 3.866-3.582 7-8 7a8.96 8.96 0 01-4-.93L3 20l1.07-3.21A7.963 7.963 0 013 12c0-3.866 3.582-7 8-7s8 3.134 8 7z"></path>
+          </svg>
+          <h3>Customer Success</h3>
+          <p>Instantly respond to queries.</p>
+        </div>
+        <div class="card">
+          <!-- UserGroupIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-7a4 4 0 11-8 0 4 4 0 018 0zm6 4v1a3 3 0 01-2.29 2.9M6 10v1a3 3 0 002.29 2.9"></path>
+          </svg>
+          <h3>Product Managers</h3>
+          <p>Share feature specs and strategy across teams.</p>
+        </div>
+        <div class="card">
+          <!-- AcademicCapIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0c-4.418 0-8-1.343-8-3m8 3c4.418 0 8-1.343 8-3"></path>
+          </svg>
+          <h3>HR / Ops</h3>
+          <p>Share onboarding & process FAQs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security & Privacy -->
+  <section style="background: var(--white); padding: 64px 0;">
+    <div class="container">
+      <h2>Security & Privacy</h2>
+      <div class="card-row">
+        <div class="card">
+          <!-- ShieldCheckIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5.25-3.5 10-8 12-4.5-2-8-6.75-8-12V7l8-4z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"></path>
+          </svg>
+          <p>SOC 2 / ISO compliance</p>
+        </div>
+        <div class="card">
+          <!-- UserGroupIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-7a4 4 0 11-8 0 4 4 0 018 0zm6 4v1a3 3 0 01-2.29 2.9M6 10v1a3 3 0 002.29 2.9"></path>
+          </svg>
+          <p>Role-based access controls</p>
+        </div>
+        <div class="card">
+          <!-- ShieldCheckIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5.25-3.5 10-8 12-4.5-2-8-6.75-8-12V7l8-4z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"></path>
+          </svg>
+          <p>End-to-end encryption</p>
+        </div>
+        <div class="card">
+          <!-- ShieldCheckIcon -->
+          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5.25-3.5 10-8 12-4.5-2-8-6.75-8-12V7l8-4z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"></path>
+          </svg>
+          <p>Hosted in secure cloud (AWS/GCP)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <h2>Bring clarity to your company. Let your team ask anything.</h2>
+    <button>Request Access</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-row">
+      <div class="footer-logo">QueryAtlas</div>
+      <nav class="footer-nav">
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Security</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#" title="LinkedIn">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="28" height="28"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/></svg>
+        </a>
+        <a href="#" title="Twitter">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="28" height="28"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.38 4.482c-4.083-.205-7.697-2.162-10.125-5.134a4.822 4.822 0 0 0-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417a9.867 9.867 0 0 1-6.102 2.104c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.009-7.496 14.009-13.986 0-.213-.005-.425-.014-.636a9.936 9.936 0 0 0 2.457-2.548l-.047-.02z"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy">© 2025</div>
+    </div>
+  </footer>
+</body>
+</html>
