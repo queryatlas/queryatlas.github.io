@@ -299,6 +299,45 @@
       .card { min-width: 90vw; }
       .hero-illustration { flex-direction: column; gap: 16px; }
     }
+
+    /* Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 600px;
+      margin: 80px auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      font-family: sans-serif;
+      color: #000000; /* Ensure black text */
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+    }
+
+    .modal-content p {
+      white-space: pre-wrap;
+      line-height: 1.6;
+      color: #000; /* Enforces black text inside <p> */
+    }
+  
   </style>
 </head>
 <body>
@@ -307,7 +346,7 @@
     <div class="container">
       <div class="nav">
         <div class="logo">QueryAtlas</div>
-        <button class="nav-btn">Request a Demo</button>
+        <a href="mailto:contact@queryatlas.com" class="nav-btn">Contact Us</a>
       </div>
       <div class="hero-title">
         Your Company’s Atlas.<br>Query Anything, Instantly.
@@ -315,17 +354,7 @@
       <div class="hero-sub">
         An AI-powered knowledge platform to centralize your company’s expertise across teams, tools, and topics.
       </div>
-      <div class="hero-ctas">
-        <button class="primary">Request a Demo</button>
-        <button class="secondary">Watch Video</button>
-      </div>
-      <div class="hero-input">
-        <input type="text" placeholder="How do I configure XYZ?">
-        <!-- Arrow icon (Heroicons) -->
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L21.75 12m0 0l-4.5 5.25M21.75 12H3"></path>
-        </svg>
-      </div>
+      
       <div class="hero-illustration">
         <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*4LUIctYJa91WySX6hAip-Q.png" alt="People asking questions">
         <div class="hero-logos">
@@ -336,6 +365,14 @@
       </div>
     </div>
   </header>
+  <div style="background-color: #eef4ff; padding: 40px 20px; text-align: center; border-radius: 12px; margin: 40px auto; max-width: 900px;">
+    <h2 style="margin: 0 0 10px; font-size: 26px; color: #2b6cb0; font-weight: 600;">
+      🚀 Launching Soon
+    </h2>
+    <p style="font-size: 17px; color: #4a5568;">
+      We're gearing up for our beta release. Be among the first to try the new QueryAtlas experience!
+    </p>
+  </div>
 
   <!-- How It Works -->
   <section style="background: var(--light-gray); padding: 64px 0;">
@@ -349,10 +386,10 @@
           </svg>
           <h3>Connect</h3>
           <p>Connect to your tools (Slack, Jira, Docs, Email, CRM, etc.)</p>
-          <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_OneNote_%282014–present%29.svg" alt="OneNote" width="24">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Jira_Logo.png" alt="Jira" width="24">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Slack_Icon.png" alt="Slack" width="24">
+          <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px;">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftonenote.svg" alt="OneNote" width="24" style="filter: invert(18%) sepia(98%) saturate(1450%) hue-rotate(262deg) brightness(85%) contrast(101%);">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jirasoftware.svg" alt="Jira" width="24" style="filter: invert(30%) sepia(68%) saturate(636%) hue-rotate(180deg) brightness(96%) contrast(94%);">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg" alt="Slack" width="24" style="filter: invert(34%) sepia(36%) saturate(2365%) hue-rotate(237deg) brightness(96%) contrast(88%);">
           </div>
         </div>
         <div class="card">
@@ -397,10 +434,7 @@
           <p>Consistent, accurate answers</p>
         </div>
       </div>
-      <div class="testimonial">
-        “We reduced onboarding time by 50% and our teams love the instant answers!”
-        <strong>– Jane Doe, Head of Ops, Acme Corp</strong>
-      </div>
+      
     </div>
   </section>
 
@@ -445,50 +479,14 @@
     </div>
   </section>
 
-  <!-- Security & Privacy -->
-  <section style="background: var(--white); padding: 64px 0;">
-    <div class="container">
-      <h2>Security & Privacy</h2>
-      <div class="card-row">
-        <div class="card">
-          <!-- ShieldCheckIcon -->
-          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5.25-3.5 10-8 12-4.5-2-8-6.75-8-12V7l8-4z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"></path>
-          </svg>
-          <p>SOC 2 / ISO compliance</p>
-        </div>
-        <div class="card">
-          <!-- UserGroupIcon -->
-          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-7a4 4 0 11-8 0 4 4 0 018 0zm6 4v1a3 3 0 01-2.29 2.9M6 10v1a3 3 0 002.29 2.9"></path>
-          </svg>
-          <p>Role-based access controls</p>
-        </div>
-        <div class="card">
-          <!-- ShieldCheckIcon -->
-          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5.25-3.5 10-8 12-4.5-2-8-6.75-8-12V7l8-4z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"></path>
-          </svg>
-          <p>End-to-end encryption</p>
-        </div>
-        <div class="card">
-          <!-- ShieldCheckIcon -->
-          <svg fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24" width="40" height="40">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5.25-3.5 10-8 12-4.5-2-8-6.75-8-12V7l8-4z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"></path>
-          </svg>
-          <p>Hosted in secure cloud (AWS/GCP)</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- CTA Strip -->
   <section class="cta-strip">
     <h2>Bring clarity to your company. Let your team ask anything.</h2>
-    <button>Request Access</button>
+    <a href="mailto:contact@queryatlas.com?subject=Mailing List Signup&body=Please add me to your mailing list." class="nav-btn">
+      <button>Join Mailing List</button>
+    </a>
   </section>
 
   <!-- Footer -->
@@ -496,11 +494,50 @@
     <div class="footer-row">
       <div class="footer-logo">QueryAtlas</div>
       <nav class="footer-nav">
-        <a href="#">About</a>
-        <a href="#">Blog</a>
-        <a href="#">Careers</a>
-        <a href="#">Security</a>
-        <a href="#">Contact</a>
+        <a href="#" onclick="openAboutUs()">About Us</a>
+
+          <!-- Modal -->
+          <div class="modal-overlay" id="aboutModal">
+            <div class="modal-content">
+              <span class="modal-close" onclick="closeAboutUs()">&times;</span>
+              <p>
+          At Queryatlas, we're building AI-powered SaaS tools that help sales engineers and product teams work smarter, faster, and more in sync.
+
+          In B2B tech, sales and product alignment is everything—but too often, it's slowed down by manual work, scattered tools, and missed context. We’re here to fix that.
+
+          Our platform uses AI to streamline technical sales workflows, auto-generate product content, and surface insights that help teams close deals and ship features with confidence. No more copy-pasting from docs, chasing down updates, or reinventing the wheel before every demo or RFP.
+
+          What We Believe:
+
+          🧠 AI should do the grunt work, so your team can focus on strategy, not spreadsheets.
+          🔄 Sales and product should move together, not in silos.
+          ⚙️ SaaS should be simple, powerful, and built for how teams actually work.
+
+          We’re a fast-moving team of engineers, product leaders, and AI enthusiasts building with real users in mind. If your sales and product teams are ready for a better way to collaborate, we’d love to show you what’s possible.
+
+          Reach out to us at contact@queryatlas.com
+              </p>
+            </div>
+          </div>
+
+          <script>
+            function openAboutUs() {
+              document.getElementById("aboutModal").style.display = "block";
+            }
+
+            function closeAboutUs() {
+              document.getElementById("aboutModal").style.display = "none";
+            }
+
+            window.onclick = function(event) {
+              const modal = document.getElementById("aboutModal");
+              if (event.target === modal) {
+                closeAboutUs();
+              }
+            }
+          </script>
+        
+        <a href="mailto:contact@queryatlas.com" >contact@queryatlas.com</a>
       </nav>
       <div class="footer-social">
         <a href="#" title="LinkedIn">
